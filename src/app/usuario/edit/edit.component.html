@@ -1,0 +1,101 @@
+<div class="container">
+  
+    <div class="d-flex justify-content-between">
+      <h4>Edit usuario</h4>
+      <a href="#" routerLink="/usuario/index" class="btn btn-primary">Atras</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Usuario:</label>
+                <input formControlName="Usuario" [(ngModel)]="usuario.Usuario" id="Usuario" type="text" class="form-control">
+                <div *ngIf="f.Usuario.touched && f.Usuario.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Usuario.errors.required">*El Usuario es requerido.</div>
+                    <div *ngIf="f.Usuario.errors.pattern">*El usuario solo puede tener letras.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Nombres:</label>
+                <input formControlName="Nombres" [(ngModel)]="usuario.Nombres" id="Nombres" type="text" class="form-control">
+                <div *ngIf="f.Nombres.touched && f.Nombres.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Nombres.errors.required">*El Nombres es requerido.</div>
+                    <div *ngIf="f.Nombres.errors.pattern">*El Nombres solo puede tener letras.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Apellidos:</label>
+                <input formControlName="Apellidos" [(ngModel)]="usuario.Apellidos" id="Apellidos" type="text" class="form-control">
+                <div *ngIf="f.Apellidos.touched && f.Apellidos.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Apellidos.errors.required">*El Apellido es requerido.</div>
+                    <div *ngIf="f.Apellidos.errors.pattern">*El Apellido solo puede tener letras.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="title">Tipo de identificacion:</label>
+                <input formControlName="Tidentificacion" [(ngModel)]="usuario.Tidentificacion" id="Tidentificacion" type="text" class="form-control">
+                <div *ngIf="f.Tidentificacion.touched && f.Tidentificacion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Tidentificacion.errors.required">*El tipo de identificacion es requerido.</div>
+                    <div *ngIf="f.Tidentificacion.errors.pattern">*El tipo de identificacion solo puede tener letras.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="Nidentificacion">Numero de identificacion:</label>
+                <input [(ngModel)]="usuario.Nidentificacion" formControlName="Nidentificacion" id="Nidentificacion" type="text" class="form-control">
+                <div *ngIf="f.Nidentificacion.touched && f.Nidentificacion.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Nidentificacion.errors.required">*Numero de identificacion es requerido.</div>
+                    <div *ngIf="f.Nidentificacion.errors.pattern">*El campo solo debe contener numeros.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="Fechanacimiento">Fecha de Nacimiento:</label>
+              <input
+                formControlName="Fechanacimiento"
+                [(ngModel)]="usuario.Fechanacimiento"
+                id="Fechanacimiento"
+                type="date"
+                class="form-control">
+                <div *ngIf="f.Fechanacimiento.touched && f.Fechanacimiento.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Fechanacimiento.errors.required">*Numero de identificacion es requerido.</div>
+                    <div *ngIf="f.Fechanacimiento.errors.pattern">*El campo solo debe contener numeros.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="Contrasena">Contraseña:</label>
+              {{ usuario.Contrasena}}hola
+              <input
+                formControlName="Contrasena"
+                [(ngModel)]="usuario.Contrasena"
+                id="Contrasena"
+                type="text"
+                class="form-control">
+                <div *ngIf="f.Contrasena.touched && f.Contrasena.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Contrasena.errors.required">*Numero de identificacion es requerido.</div>
+                    <div *ngIf="f.Contrasena.errors.pattern">*El campo solo debe contener numeros.</div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
